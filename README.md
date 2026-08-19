@@ -2,7 +2,7 @@
 
 一只只属于你的鲸鱼同伴，有可能实现你的愿望，还可以陪你聊天。
 
-**Minecraft Fabric 模组**，AI 对话基于 DeepSeek API（需要玩家自行申请 API Key）。
+**Minecraft Fabric 模组**，基于 DeepSeek API 的AI对话。
 
 <a href="https://whale.shiorko.dpdns.org" style="display: inline-block; padding: 18px 40px; font-size: 28px; font-weight: bold; color: #fff; background-color: #4CAF50; border-radius: 12px; text-decoration: none; text-align: center;">
   点我获取模组
