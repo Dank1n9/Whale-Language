@@ -56,5 +56,6 @@ https://copyright.shiorko.dpdns.org/
 
 ## 捐
 破产了 吃不起饭了
+
 <img width="571" height="566" alt="QR" src="https://github.com/user-attachments/assets/8d494939-6562-48fc-ad45-e7475e9d304b" />
 
