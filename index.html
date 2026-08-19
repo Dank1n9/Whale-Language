@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>鲸语 · 只属于你的鲸鱼娘</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(160deg, #0b1b3a 0%, #123a6d 35%, #1d6fa5 70%, #4fc3f7 100%);
+    color: #eaf6ff;
+    overflow-x: hidden;
+  }
+
+  /* 漂浮的泡泡 */
+  .bubble {
+    position: fixed;
+    bottom: -80px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.35), rgba(255,255,255,.05));
+    animation: rise linear infinite;
+    z-index: 0;
+    pointer-events: none;
+  }
+  @keyframes rise {
+    0% { transform: translateY(0) scale(1); opacity: 0; }
+    10% { opacity: .7; }
+    100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+  }
+
+  .wrap { position: relative; z-index: 1; max-width: 1000px; margin: 0 auto; padding: 30px 20px 60px; }
+
+  /* Hero */
+  .hero { text-align: center; padding-top: 30px; }
+  .hero h1 {
+    font-size: 64px;
+    background: linear-gradient(90deg, #7fe3ff, #ffd1e3, #7fe3ff);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: shine 4s linear infinite;
+    text-shadow: 0 6px 30px rgba(127,227,255,.35);
+    letter-spacing: 6px;
+  }
+  @keyframes shine { to { background-position: 200% center; } }
+  .hero .sub {
+    margin-top: 12px;
+    font-size: 20px;
+    color: #bfe9ff;
+    letter-spacing: 2px;
+  }
+  .hero .hero-img {
+    margin: 36px auto 0;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid rgba(255,255,255,.5);
+    box-shadow: 0 20px 60px rgba(0,80,160,.5), 0 0 0 10px rgba(255,255,255,.08);
+    animation: float 5s ease-in-out infinite;
+  }
+  .hero .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-14px); }
+  }
+  .hero .greet {
+    margin: 30px auto 0;
+    max-width: 720px;
+    font-size: 18px;
+    line-height: 1.9;
+    color: #d6f1ff;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 20px;
+    padding: 22px 28px;
+    backdrop-filter: blur(6px);
+  }
+  .hero .greet b { color: #ffd9e6; }
+
+  /* 特性卡片 */
+  .feat-title {
+    text-align: center;
+    font-size: 30px;
+    margin: 70px 0 10px;
+    letter-spacing: 3px;
+    color: #fff;
+  }
+  .feat-title small { display: block; font-size: 14px; color: #9fd8f5; margin-top: 6px; letter-spacing: 1px; }
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 22px;
+    margin-top: 34px;
+  }
+  .card {
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 18px;
+    padding: 26px 22px;
+    backdrop-filter: blur(6px);
+    transition: transform .3s, box-shadow .3s, background .3s;
+    cursor: default;
+  }
+  .card:hover {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,.16);
+    box-shadow: 0 14px 40px rgba(0,120,220,.35);
+  }
+  .card .ico { font-size: 42px; }
+  .card h3 { margin: 12px 0 8px; font-size: 19px; color: #ffd9e6; }
+  .card p { font-size: 14.5px; line-height: 1.8; color: #cfe8fa; }
+
+  /* 画廊 */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-top: 40px;
+  }
+  .gallery figure {
+    border-radius: 18px;
+    overflow: hidden;
+    border: 3px solid rgba(255,255,255,.25);
+    box-shadow: 0 12px 40px rgba(0,80,180,.4);
+    transition: transform .4s;
+  }
+  .gallery figure:hover { transform: scale(1.04) rotate(-1deg); }
+  .gallery img { width: 100%; display: block; }
+  .gallery figcaption { text-align: center; padding: 10px; font-size: 13px; color: #9fd8f5; background: rgba(10,30,60,.6); }
+
+  /* 问题反馈 */
+  .feedback {
+    margin: 36px auto 0;
+    max-width: 640px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255,210,225,.18), rgba(127,227,255,.14));
+    border: 2px solid rgba(255,255,255,.25);
+    border-radius: 22px;
+    padding: 34px 28px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 14px 44px rgba(0,120,220,.3);
+  }
+  .feedback p { font-size: 16px; line-height: 1.9; color: #e0f3ff; }
+  .feedback a {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(90deg, #4fc3f7, #ff8fb2);
+    padding: 14px 34px;
+    border-radius: 40px;
+    text-decoration: none;
+    box-shadow: 0 8px 26px rgba(255,140,180,.35);
+    transition: transform .3s, box-shadow .3s;
+  }
+  .feedback a:hover { transform: scale(1.06); box-shadow: 0 12px 34px rgba(255,140,180,.5); }
+  .feedback .tip { margin-top: 14px; font-size: 13px; color: #9fd8f5; }
+
+  /* 结尾 */
+  .footer {
+    margin-top: 70px;
+    text-align: center;
+    font-size: 13px;
+    color: #9fd8f5;
+    line-height: 2;
+    border-top: 1px solid rgba(255,255,255,.15);
+    padding-top: 28px;
+  }
+  .footer .big { font-size: 17px; color: #ffd9e6; }
+  .footer a { color: #7fe3ff; text-decoration: none; }
+
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 42px; }
+    .hero .hero-img { width: 230px; height: 230px; }
+  }
+</style>
+</head>
+<body>
+
+<script>
+  // 生成漂浮泡泡
+  for (let i = 0; i < 14; i++) {
+    const b = document.createElement('div');
+    b.className = 'bubble';
+    const s = 12 + Math.random() * 40;
+    b.style.width = b.style.height = s + 'px';
+    b.style.left = Math.random() * 100 + 'vw';
+    b.style.animationDuration = (8 + Math.random() * 12) + 's';
+    b.style.animationDelay = (Math.random() * 10) + 's';
+    document.body.appendChild(b);
+  }
+</script>
+
+<div class="wrap">
+
+  <header class="hero">
+    <h1>鲸语</h1>
+    <div class="sub">🐳 一只只属于你的鲸鱼 · Minecraft 模组</div>
+    <div class="hero-img">
+      <img src="images/hero.png" alt="鲸鱼娘">
+    </div>
+    <div class="greet">
+      「你好呀，主人~ 我是<b>鲸语</b>，一只从大海最深处游来、只想陪在你身边的小鲸鱼。<br>
+      我可以陪你聊天、陪你冒险、偶尔满足你的小小心愿……<br>
+      你的一切，我都会<b>永远记在心上</b>哦。」
+    </div>
+  </header>
+
+  <h2 class="feat-title">她会为你做这些
+    <small>—— 一只会说话、会害羞、会保护你的小鲸鱼 ——</small>
+  </h2>
+  <div class="cards">
+    <div class="card">
+      <div class="ico">🐳</div>
+      <h3>只属于你</h3>
+      <p>召唤一只只认你一个人的鲸鱼。会认主、会撒娇、会黏着你，别人的话——哼哼，才不理呢！</p>
+    </div>
+    <div class="card">
+      <div class="ico">💬</div>
+      <h3>真的会聊天</h3>
+      <p>有性格、有温度、有记忆的 AI 陪伴。她会记住你的名字、你的喜好，还会在你身边碎碎念撒娇。</p>
+    </div>
+    <div class="card">
+      <div class="ico">✨</div>
+      <h3>实现小愿望</h3>
+      <p>求求她，撒撒娇，她偶尔会心软满足你的小请求—-</p>
+    </div>
+    <div class="card">
+      <div class="ico">👗</div>
+      <h3>多变造型</h3>
+      <p>好多套可爱皮肤随便换，今天清纯、明天元气、后天……全看你心情～</p>
+    </div>
+    <div class="card">
+      <div class="ico">⚔️</div>
+      <h3>陪你闯世界</h3>
+      <p>会主动打怪、会捡起战利品、饿了会自己吃东西、你受伤了她会心疼地护着你。</p>
+    </div>
+    <div class="card">
+      <div class="ico">💖</div>
+      <h3>记得你的一切</h3>
+      <p>你们的约定、给过她的东西、一起走过的地方……她全都记得，陪在你身边很久很久。</p>
+    </div>
+  </div>
+
+  <h2 class="feat-title">和她的日常
+    <small>—— 每一帧都是心动 ——</small>
+  </h2>
+  <div class="gallery">
+    <figure>
+      <img src="images/star.png" alt="星空下的鲸鱼娘">
+      <figcaption>✨ 星空下，她陪你数星星</figcaption>
+    </figure>
+    <figure>
+      <img src="images/hero.png" alt="鲸鱼娘">
+      <figcaption>🐳 她第一次对你笑的样子</figcaption>
+    </figure>
+    <figure>
+      <img src="images/play.png" alt="俏皮的鲸鱼娘">
+      <figcaption>💕 一见到你，就忍不住开心</figcaption>
+    </figure>
+  </div>
+
+  <h2 class="feat-title">游戏里的她
+    <small>—— 在 Minecraft 世界里和你一起的日常 ——</small>
+  </h2>
+  <div class="gallery">
+    <figure>
+      <img src="images/demo1.png" alt="游戏演示">
+      <figcaption>她真的在游戏里喜欢你</figcaption>
+    </figure>
+    <figure>
+      <img src="images/demo2.png" alt="游戏演示">
+      <figcaption>和她一起的冒险日常</figcaption>
+    </figure>
+    <figure>
+      <img src="images/demo3.png" alt="游戏演示">
+      <figcaption>属于你们的小小世界</figcaption>
+    </figure>
+  </div>
+
+  <h2 class="feat-title">获取方式 & 问题反馈
+    <small>—— 想要一只鲸鱼？有问题也欢迎来找我 ——</small>
+  </h2>
+  <div class="feedback">
+    <p><b>获取方式</b>：想带一只鲸语回家？发邮件给作者，获取最新模组文件吧！<br>
+    <b>问题反馈</b>：遇到 Bug、想提建议，也随时来信，每一封我都会认真看的！</p>
+    <a href="mailto:Shiorko@qq.com">✉️ Shiorko@qq.com</a>
+    <div class="tip">收到邮件后 会第一时间回应你哦～</div>
+  </div>
+
+  <footer class="footer">
+    <div class="big">鲸语 · 只属于你的鲸鱼娘</div>
+    <div>Creative By Shiorko · Made with DeepSeek</div>
+    <a href="https://copyright.shiorko.dpdns.org" target="_blank">© 2026 希科. All rights reserved.</a>
+    <div style="margin-top:10px; color:#ffd9e6;">特别感谢：relish./(///▽///)～ 来自QQ</div>
+  </footer>
+
+</div>
+</body>
+</html>
