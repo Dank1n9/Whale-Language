@@ -49,7 +49,10 @@
 ## 版权
 
 <a href="https://copyright.shiorko.dpdns.org" target="_blank">© 2026 希科. All rights reserved.</a>
+
 未经允许禁止二次分发！
+
+- ***该项目并非开源项目***
 
 特别感谢：relish./(///▽///)～
 
