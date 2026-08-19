@@ -48,8 +48,7 @@
 
 ## 版权
 
-© 2026 Shiorko. All rights reserved.
-https://copyright.shiorko.dpdns.org/
+<a href="https://copyright.shiorko.dpdns.org" target="_blank">© 2026 希科. All rights reserved.</a>
 
 特别感谢：relish./(///▽///)～
 
