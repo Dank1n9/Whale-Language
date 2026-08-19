@@ -36,7 +36,7 @@
 ## 使用前提
 
 1. 需要 **Fabric Loader** 和 **Fabric API**
-2. 在 `https://api.deepseek.com` 注册并申请 API Key
+2. 在<a href="https://platform.deepseek.com" target="_blank">Deep Seek 开放平台</a>注册并申请 API Key
 3. 游戏内 `/ds config` 填入 API Key 并开启 AI
 
 ## 编译说明
