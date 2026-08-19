@@ -1,6 +1,6 @@
-# 鲸语（whalegirl）
+# 鲸语（Whale-Language）
 
-一只只属于你的鲸鱼娘同伴，有可能实现你的愿望，还可以陪你聊天。
+一只只属于你的鲸鱼同伴，有可能实现你的愿望，还可以陪你聊天。
 
 **Minecraft Fabric 模组**，AI 对话基于 DeepSeek API（需要玩家自行申请 API Key）。
 
@@ -12,10 +12,10 @@
 
 | 目录 | Minecraft 版本 | 说明 |
 |---|---|---|
-| `whalegirl-1.21.1` | 1.21.1 | Fabric |
-| `whalegirl-1.21.3` | 1.21.3 | Fabric |
-| `whalegirl-1.21.4` | 1.21.4 | Fabric |
-| `whalegirl-1.21.11` | 1.21.11 | Fabric |
+| `鲸语-2.1.4-fabric-1.21.1` | 1.21.1 | Fabric |
+| `鲸语-2.1.4-fabric-1.21.3` | 1.21.3 | Fabric |
+| `鲸语-2.1.4-fabric-1.21.4` | 1.21.4 | Fabric |
+| `鲸语-2.1.4-fabric-1.21.11` | 1.21.11 | Fabric |
 
 每个目录都是标准结构：`src/main/java`（源码）+ `src/main/resources`（fabric.mod.json、图标、皮肤贴图）。
 
@@ -51,4 +51,4 @@
 © 2026 Shiorko. All rights reserved.
 https://copyright.shiorko.dpdns.org/
 
-特别感谢：relish./(///▽///)～（来自QQ）
+特别感谢：relish./(///▽///)～
