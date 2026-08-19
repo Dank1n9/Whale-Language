@@ -12,10 +12,10 @@
 
 | 目录 | Minecraft 版本 | 说明 |
 |---|---|---|
-| `鲸语-2.1.4-fabric-1.21.1` | 1.21.1 | Fabric |
-| `鲸语-2.1.4-fabric-1.21.3` | 1.21.3 | Fabric |
-| `鲸语-2.1.4-fabric-1.21.4` | 1.21.4 | Fabric |
-| `鲸语-2.1.4-fabric-1.21.11` | 1.21.11 | Fabric |
+| `鲸语-2.1.4-fabric-1.21.1.jar` | 1.21.1 | Fabric |
+| `鲸语-2.1.4-fabric-1.21.3.jar` | 1.21.3 | Fabric |
+| `鲸语-2.1.4-fabric-1.21.4.jar` | 1.21.4 | Fabric |
+| `鲸语-2.1.4-fabric-1.21.11.jar` | 1.21.11 | Fabric |
 
 每个目录都是标准结构：`src/main/java`（源码）+ `src/main/resources`（fabric.mod.json、图标、皮肤贴图）。
 
