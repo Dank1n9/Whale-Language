@@ -58,3 +58,8 @@
 
 <img width="571" height="566" alt="QR" src="https://github.com/user-attachments/assets/8d494939-6562-48fc-ad45-e7475e9d304b" />
 
+## 费用说明
+- **本模组需要消耗API tokens**
+- **本模组旨在我以最烂的技术给你最好的服务**
+- **本模组有偿使用**
+- **本模组除用户互动/记忆上传外不会额外消耗tokens**
